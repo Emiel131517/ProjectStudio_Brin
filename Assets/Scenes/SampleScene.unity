@@ -637,6 +637,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbd35e74a4e022e40b58e1174ec5944a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterNeed: 0
+  isGrown: 0
   growSpeed: {x: 0, y: 0, z: 0}
   isScaling: 0
 --- !u!1 &1580365263 stripped
@@ -654,9 +656,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1580365263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbd35e74a4e022e40b58e1174ec5944a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1af399785bac8414983d93efca190f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterNeed: 0
+  isGrown: 0
   growSpeed: {x: 0, y: 0, z: 0}
   isScaling: 0
 --- !u!1001 &1963690552
@@ -743,8 +747,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2092980401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbd35e74a4e022e40b58e1174ec5944a, type: 3}
+  m_Script: {fileID: 11500000, guid: 89ff5f2d369f86542b5b8d4d2e11d790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterNeed: 0
+  isGrown: 0
   growSpeed: {x: 0, y: 0, z: 0}
   isScaling: 0
