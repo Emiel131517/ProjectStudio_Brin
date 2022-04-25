@@ -16,7 +16,7 @@ public class Put : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.Play("GetWater");
+            animator.Play("Hendel|CircleAction");
         }
     }
 }
