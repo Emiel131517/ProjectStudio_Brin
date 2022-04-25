@@ -9,7 +9,6 @@ public class ScalablePlant : MonoBehaviour
     private Vector3 endScale;
     private Vector3 vec3GrowSpeed;
     private bool isScaling;
-    private bool isGrown;
 
     public float growSpeed;
     public float waterCount;
@@ -23,7 +22,6 @@ public class ScalablePlant : MonoBehaviour
         transform.localScale = startScale;
 
         isScaling = true;
-        isGrown = false;
     }
 
     // Update is called once per frame
@@ -50,7 +48,6 @@ public class ScalablePlant : MonoBehaviour
                 transform.localScale.y >= endScale.y ||
                 transform.localScale.z >= endScale.z)
             {
-                isGrown = true;
                 isScaling = false;
             }
         }
@@ -59,6 +56,5 @@ public class ScalablePlant : MonoBehaviour
     {
         transform.localScale = startScale;
         isScaling = true;
-        isGrown = false;
     }
 }
