@@ -2,44 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plant : MonoBehaviour
+public class ScalablePlant : MonoBehaviour
 {
+    private float time;
     private Vector3 startScale;
     private Vector3 endScale;
-    public Vector3 growSpeed;
-    public bool isScaling;
-    public float waterNeed;
-    public bool isGrown;
-    //private Renderer renderer;
-    void Start()
+    private Vector3 vec3GrowSpeed;
+    private bool isScaling;
+    private bool isGrown;
+
+    public float growSpeed;
+    public float waterCount;
+    protected void Start()
     {
+        vec3GrowSpeed = new Vector3(growSpeed, growSpeed, growSpeed);
+
+        time = 0;
         endScale = transform.localScale;
-        startScale = transform.localScale / 100;
+        startScale = transform.localScale / 100f;
         transform.localScale = startScale;
+
+        isScaling = true;
         isGrown = false;
-        //renderer = gameObject.GetComponent<Renderer>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         DrainWater();
+        Grow();
     }
-    void DrainWater()
+    private void DrainWater()
     {
-        float time = 0;
         time += Time.deltaTime;
-        if (time >= 1)
+        if (time >= 1f && waterCount > 0)
         {
-            waterNeed -= 1;
+            waterCount -= 1;
             time = 0;
         }
     }
-    protected void Grow()
+    private void Grow()
     {
-        if (waterNeed > 0 && isScaling)
+        if (waterCount > 0 && isScaling)
         {
-            transform.localScale += growSpeed * Time.deltaTime;
+            transform.localScale += vec3GrowSpeed * Time.deltaTime;
             if (transform.localScale.x >= endScale.x ||
                 transform.localScale.y >= endScale.y ||
                 transform.localScale.z >= endScale.z)
