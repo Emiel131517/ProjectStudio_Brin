@@ -10,9 +10,10 @@ public class ScalablePlant : MonoBehaviour
     private Vector3 vec3GrowSpeed;
     private bool isScaling;
 
+    public bool isGrown;
     public float growSpeed;
     public float waterCount;
-    protected void Start()
+    private void Start()
     {
         vec3GrowSpeed = new Vector3(growSpeed, growSpeed, growSpeed);
 
@@ -21,11 +22,12 @@ public class ScalablePlant : MonoBehaviour
         startScale = transform.localScale / 100f;
         transform.localScale = startScale;
 
+        isGrown = false;
         isScaling = true;
     }
 
     // Update is called once per frame
-    protected void Update()
+    private void Update()
     {
         DrainWater();
         Grow();
@@ -49,12 +51,14 @@ public class ScalablePlant : MonoBehaviour
                 transform.localScale.z >= endScale.z)
             {
                 isScaling = false;
+                isGrown = true;
             }
         }
     }
-    private void Harvest()
+    public void Harvest()
     {
         transform.localScale = startScale;
         isScaling = true;
+        isGrown = false;
     }
 }

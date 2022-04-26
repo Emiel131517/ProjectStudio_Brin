@@ -8,6 +8,8 @@ public class Put : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private ParticleSystem particle;
+    [SerializeField]
+    private string animationName;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -21,7 +23,7 @@ public class Put : MonoBehaviour
         // if (player.holdingItem == typeof Gieter)
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            animator.Play("Hendel|CircleAction");
+            animator.Play(animationName);
             //Gieter.Fill();
         }
         // Interactie met de speler terwijl hij de coin vast heeft.
