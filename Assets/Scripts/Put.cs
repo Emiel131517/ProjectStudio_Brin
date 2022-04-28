@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Put : MonoBehaviour
 {
-    [SerializeField]
+    // Heeft een animator component nodig.
     private Animator animator;
-    [SerializeField]
+    // Heeft een particlesysyem nodig.
     private ParticleSystem particle;
     [SerializeField]
     private string animationName;
@@ -16,11 +16,10 @@ public class Put : MonoBehaviour
         particle = GetComponentInChildren<ParticleSystem>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Interactie met de speler terwijl hij de gieter vast heeft.
-        // if (player.holdingItem == typeof Gieter)
+        // (if player.IsHolding(Gieter)
         if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.Play(animationName);

@@ -5,8 +5,6 @@ using UnityEngine;
 public class Tool : MonoBehaviour
 {
     [SerializeField]
-    private List<ScalablePlant> plants;
-    [SerializeField]
     private string tagName;
     [SerializeField]
     private string animName;
@@ -14,19 +12,21 @@ public class Tool : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        plants = new List<ScalablePlant>();
     }
     void Update()
     {
-        if (!plants.Contains(GameObject.FindWithTag(tagName).GetComponent<ScalablePlant>()))
-        {
-            plants.Add(GameObject.FindWithTag(tagName).GetComponent<ScalablePlant>());
-        }
 
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == tagName)
         {
-            //plants[i].Harvest();
-            animator.Play(animName);
+            ScalablePlant plant = other.GetComponent<ScalablePlant>();
+            if (plant.isGrown)
+            {
+                plant.Harvest();
+                //animator.Play(animName);
+            }
         }
     }
 }
